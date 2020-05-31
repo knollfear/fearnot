@@ -31,7 +31,8 @@ class GameContainer extends React.Component {
 
                 this.setState({
                     cards: possibleCards,
-                    activeCard:possibleCards[0]
+                    activeCard:possibleCards[0],
+                    activeCards:possibleCards.slice(0, 4)
                 });
             });
     }
@@ -41,41 +42,62 @@ class GameContainer extends React.Component {
 
     clickHandler = (obj) =>{
         console.log(obj.preferredName || obj.firstName);
-        const isCorrect = this.state.currentRule.rule(obj, this.state.activeCard, this.state.isNot);
-        let score = 0
+        let isCorrect = this.state.currentRule.rule(
+            obj,
+            this.state.activeCard,
+            this.state.activeCards
+        );
+        if (this.state.isNot){
+            isCorrect = !isCorrect
+        }
+        let score = 0;
         if (isCorrect){
             score = this.state.score + 1
+
         }
         this.changeRule(score)
     };
 
     changeRule = (score) =>{
-        let currentRule = Rules[Math.floor(Math.random() * Rules.length)];
+
+        if (score === 0){
+            const prevScore = this.state.score;
+            console.log('HIGH SCORE:' + localStorage.getItem('highScore'));
+
+            localStorage.setItem('highScore', Math.max(
+                prevScore,
+                localStorage.getItem('highScore') || 0
+            ));
+
+            this.setState({prevScore});
+        }
+        const numRules = Math.min(Rules.length, Math.floor(this.state.score/5));
+        let currentRule = Rules[Math.floor(Math.random() * numRules)];
+        //let currentRule = Rules[4];
         let possibleCards = this.state.cards;
         shuffle(possibleCards);
         let activeCard = possibleCards[0];
+        let activeCards = possibleCards.slice(0,Math.floor(this.state.score/4) + 4);
+        shuffle(activeCards);
         let isNot = (Math.floor(Math.random() * 10) % 2 === 0);
         console.log(isNot);
-        this.setState({score, currentRule, possibleCards, activeCard, isNot})
+        this.setState({score, currentRule, possibleCards, activeCard, activeCards, isNot})
     };
 
     render() {
-        let cards;
-        if(this.state.cards){
-            cards = this.state.cards.slice(0,Math.floor(this.state.score/4) + 4);
-            shuffle(cards);
-        }
 
         return (
             this.state.cards ?
                 <React.Fragment>
                     <div className={'header'}>Fear Not!</div>
-                    <GameArea cards={cards} clickHandler={this.clickHandler}/>
+                    <GameArea cards={this.state.activeCards} clickHandler={this.clickHandler}/>
                     <Footer
                         rule={this.state.currentRule}
                         isNot={this.state.isNot}
                         activeCard={this.state.activeCard}
-                        score={this.state.score}/>
+                        score={this.state.score}
+                        prevScore={this.state.prevScore}
+                    />
                 </React.Fragment>
                 :
                 <div>Loading</div>
