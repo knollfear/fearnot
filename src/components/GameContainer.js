@@ -96,7 +96,7 @@ class GameContainer extends React.Component {
                         </div>
                         :
                         <React.Fragment>
-                            < GameArea cards={this.state.activeCards} clickHandler={this.clickHandler}/>
+                            < GameArea cards={this.state.activeCards} clickHandler={this.clickHandler} rule={this.state.currentRule}/>
                             <Footer
                                 rule={this.state.currentRule}
                                 isNot={this.state.isNot}

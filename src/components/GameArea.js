@@ -1,14 +1,14 @@
 import React from 'react';
 
-const GameArea = ({cards, clickHandler}) =>{
+const GameArea = ({cards, clickHandler, rule}) =>{
 
     return cards.map((card, index)=>{
-    return (
-        <span onClick={() => clickHandler(card)} key={index}>
-            <img src={process.env.PUBLIC_URL + '/' + card.photoUrl } alt={card.displayName}/>
-        </span>
-)
+        return (
+            <span onClick={() => clickHandler(card)} key={index}>
+                {rule.cardRender(card)}
+            </span>
+    )
     })
-}
+};
 
 export default GameArea
