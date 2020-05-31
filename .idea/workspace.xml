@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38b9411f-3bac-41f5-bf65-ca7b1cdb0216" name="Default Changelist" comment="Initial Commit">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="38b9411f-3bac-41f5-bf65-ca7b1cdb0216" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Rules.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Rules.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590846131037</updated>
-      <workItem from="1590846133043" duration="10345000" />
+      <workItem from="1590846133043" duration="11201000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1590887046930</created>
@@ -89,7 +82,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590887046931</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Increasing difficulty by adding rules dynamically.  Score Tracking of previous and high score.">
+      <created>1590892027584</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1590892027584</updated>
+    </task>
+    <task id="LOCAL-00003" summary="namespaced high score and made lookup a constant.">
+      <created>1590892624145</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1590892624145</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,13 +104,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Increasing difficulty by adding rules dynamically.  Score Tracking of previous and high score." />
+    <MESSAGE value="namespaced high score and made lookup a constant." />
+    <option name="LAST_COMMIT_MESSAGE" value="namespaced high score and made lookup a constant." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="301" y="23" key="CommitChangelistDialog2" timestamp="1590887046707">
+    <state x="301" y="23" key="CommitChangelistDialog2" timestamp="1590892624044">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="301" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1590887046707" />
+    <state x="301" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1590892624044" />
     <state width="1398" height="212" key="GridCell.Tab.0.bottom" timestamp="1590886993556">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -124,5 +133,17 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1590872643867" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Rules.js</url>
+          <line>43</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
