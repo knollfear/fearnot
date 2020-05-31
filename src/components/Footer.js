@@ -1,7 +1,9 @@
 import React from 'react';
+import {HIGHSCORE} from './Rules'
 
 const Footer = ({rule, activeCard, isNot, score, prevScore}) =>{
-    const highScore = localStorage.getItem('highScore') || false;
+
+    const highScore = localStorage.getItem(HIGHSCORE) || false;
     return(
         <div className={'footer'}>
             <div>

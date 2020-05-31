@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Footer from "./Footer";
-import Rules from "./Rules"
+import Rules, {HIGHSCORE} from "./Rules"
 import GameArea from "./GameArea";
 
 
@@ -62,11 +62,9 @@ class GameContainer extends React.Component {
 
         if (score === 0){
             const prevScore = this.state.score;
-            console.log('HIGH SCORE:' + localStorage.getItem('highScore'));
-
-            localStorage.setItem('highScore', Math.max(
+            localStorage.setItem(HIGHSCORE, Math.max(
                 prevScore,
-                localStorage.getItem('highScore') || 0
+                localStorage.getItem(HIGHSCORE) || 0
             ));
 
             this.setState({prevScore});
