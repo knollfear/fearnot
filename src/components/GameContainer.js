@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Rules from "./Rules"
 import {getCards} from "../api/Cards";
 import GameArea from "./GameArea";
-import {updateHighScore} from "../api/Score";
+import {updateHighScore, updateNumGames } from "../api/Score";
 
 
 
@@ -60,10 +60,7 @@ class GameContainer extends React.Component {
     changeRule = (score) =>{
 
         if (score === 0){
-            const prevScore = this.state.score;
-            updateHighScore(prevScore);
-
-            this.setState({prevScore});
+            this.newGame();
         }
         const numRules = Math.min(Rules.length, Math.floor(score/5));
         let currentRule = Rules[Math.floor(Math.random() * numRules)];
@@ -78,20 +75,38 @@ class GameContainer extends React.Component {
         this.setState({score, currentRule, possibleCards, activeCard, activeCards, isNot})
     };
 
+    newGame = () =>{
+        const prevScore = this.state.score;
+        updateHighScore(prevScore);
+        updateNumGames();
+        this.setState({prevScore, endGame:true});
+    };
+
     render() {
 
         return (
             this.state.cards ?
                 <React.Fragment>
                     <div className={'header'}>Fear Not!</div>
-                    <GameArea cards={this.state.activeCards} clickHandler={this.clickHandler}/>
-                    <Footer
-                        rule={this.state.currentRule}
-                        isNot={this.state.isNot}
-                        activeCard={this.state.activeCard}
-                        score={this.state.score}
-                        prevScore={this.state.prevScore}
-                    />
+                    {this.state.endGame ?
+
+                        <div >
+                            <div>Great Job.  You scored: {this.state.prevScore}</div>
+                            <button onClick={()=>{this.setState({endGame:false})}}>New Game?</button>
+                        </div>
+                        :
+                        <React.Fragment>
+                            < GameArea cards={this.state.activeCards} clickHandler={this.clickHandler}/>
+                            <Footer
+                                rule={this.state.currentRule}
+                                isNot={this.state.isNot}
+                                activeCard={this.state.activeCard}
+                                score={this.state.score}
+                                prevScore={this.state.prevScore}
+                            />
+                        </React.Fragment>
+                    }
+
                 </React.Fragment>
                 :
                 <div>Loading</div>
