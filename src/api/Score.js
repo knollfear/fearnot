@@ -19,7 +19,7 @@ const updateHighScore = prevScore =>{
 };
 
 const updateNumGames = () =>{
-    let numGames = localStorage.getItem('FN_NUM_GAMES');
+    let numGames = localStorage.getItem('FN_NUM_GAMES') || '0';
     numGames = isNaN(numGames) ? 1 : parseInt(numGames, 10) + 1;
 
     localStorage.setItem('FN_NUM_GAMES', numGames)
