@@ -39,7 +39,5 @@ const Rules =[
 
 ];
 
-const HIGHSCORE = 'FN_HIGHSCORE';
 
 export default  Rules;
-export {Rules, HIGHSCORE}

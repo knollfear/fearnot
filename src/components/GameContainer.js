@@ -1,8 +1,10 @@
 
 import React from 'react';
 import Footer from "./Footer";
-import Rules, {HIGHSCORE} from "./Rules"
+import Rules from "./Rules"
+import {getCards} from "../api/Cards";
 import GameArea from "./GameArea";
+import {updateHighScore} from "../api/Score";
 
 
 
@@ -20,28 +22,25 @@ class GameContainer extends React.Component {
     }
 
     setupGame() {
-        fetch(process.env.PUBLIC_URL + `/${this.state.selectedSource}.json`)
-            .then(response => {
-                return response.json();
-            })
-            .then(entity => {
-                let possibleCards = entity.cards;
+        const apiCards = getCards(this.state.source);
 
-                shuffle(possibleCards);
+        apiCards.then((possibleCards) =>{
+            shuffle(possibleCards);
 
-                this.setState({
-                    cards: possibleCards,
-                    activeCard:possibleCards[0],
-                    activeCards:possibleCards.slice(0, 4)
-                });
+            this.setState({
+                cards: possibleCards,
+                activeCard:possibleCards[0],
+                activeCards:possibleCards.slice(0, 4)
             });
+        });
+
     }
     componentDidMount() {
         this.setupGame();
     }
 
     clickHandler = (obj) =>{
-        console.log(obj.preferredName || obj.firstName);
+
         let isCorrect = this.state.currentRule.rule(
             obj,
             this.state.activeCard,
@@ -62,20 +61,17 @@ class GameContainer extends React.Component {
 
         if (score === 0){
             const prevScore = this.state.score;
-            localStorage.setItem(HIGHSCORE, Math.max(
-                prevScore,
-                localStorage.getItem(HIGHSCORE) || 0
-            ));
+            updateHighScore(prevScore);
 
             this.setState({prevScore});
         }
-        const numRules = Math.min(Rules.length, Math.floor(this.state.score/5));
+        const numRules = Math.min(Rules.length, Math.floor(score/5));
         let currentRule = Rules[Math.floor(Math.random() * numRules)];
         //let currentRule = Rules[4];
         let possibleCards = this.state.cards;
         shuffle(possibleCards);
         let activeCard = possibleCards[0];
-        let activeCards = possibleCards.slice(0,Math.floor(this.state.score/4) + 4);
+        let activeCards = possibleCards.slice(0,Math.floor(score/4) + 4);
         shuffle(activeCards);
         let isNot = (Math.floor(Math.random() * 10) % 2 === 0);
         console.log(isNot);

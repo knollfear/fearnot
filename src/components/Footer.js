@@ -1,9 +1,9 @@
 import React from 'react';
-import {HIGHSCORE} from './Rules'
+import {getHighScore} from "../api/Score";
 
 const Footer = ({rule, activeCard, isNot, score, prevScore}) =>{
 
-    const highScore = localStorage.getItem(HIGHSCORE) || false;
+    const highScore = getHighScore();
     return(
         <div className={'footer'}>
             <div>
@@ -17,7 +17,7 @@ const Footer = ({rule, activeCard, isNot, score, prevScore}) =>{
                     Previous Score: {prevScore}
                 </div>
             }
-            {highScore &&
+            {highScore > 0 &&
                 <div>
                     High Score: {highScore}
                 </div>
