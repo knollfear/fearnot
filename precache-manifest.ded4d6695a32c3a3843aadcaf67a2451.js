@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "82088d9d646150dc0e3d2ee866f636ac",
+    "revision": "ec70434b9d88481be28d590e46d6c2e6",
     "url": "/fearnot/index.html"
   },
   {
-    "revision": "03fb56cd5855c4bef1f7",
-    "url": "/fearnot/static/css/main.2d12248b.chunk.css"
+    "revision": "ac54a6173fa5e19a88be",
+    "url": "/fearnot/static/css/main.4d7b233f.chunk.css"
   },
   {
     "revision": "87e62d93fd5dddaeee9e",
@@ -16,15 +16,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fearnot/static/js/2.ffea71cc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "03fb56cd5855c4bef1f7",
-    "url": "/fearnot/static/js/main.4fa0eff9.chunk.js"
+    "revision": "ac54a6173fa5e19a88be",
+    "url": "/fearnot/static/js/main.4a19af46.chunk.js"
   },
   {
     "revision": "d3b79ee2f384df2ffa53",
     "url": "/fearnot/static/js/runtime-main.cd51d4bf.js"
   },
   {
-    "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",
-    "url": "/fearnot/static/media/logo.5d5d9eef.svg"
+    "revision": "9b1b5ea43ec8ba5b5dde263198504788",
+    "url": "/fearnot/static/media/logo.9b1b5ea4.svg"
   }
 ]);
