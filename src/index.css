@@ -1,15 +1,25 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Montserrat Alternates Bold', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:purple;
+  background-color:#5c3977;
   color:white;
   text-align: center;
   padding:10px;
 
+}
+
+button{
+  background-color: #78638f;
+  padding: 25px;
+  border: white 3px solid;
+  margin: 8px;
+  color: white;
+  border-radius: 10px;
+  font-size:1.5em;
 }
 
 
@@ -19,12 +29,15 @@ code {
 }
 
 img{
-  padding:10px
+  padding:10px;
+  border-radius: 20%;
 }
 .header {
   font-size: 2em;
 
   min-height: 10vh;
+
+  font-weight: bold;
 
 }
 

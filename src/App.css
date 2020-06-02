@@ -24,6 +24,23 @@
   color: white;
 }
 
+.card{
+  display:inline-block;
+}
+ul{
+  list-style: none;
+}
+
+.active img {
+  border: #ee5340 solid 5px;
+  padding: 0;
+}
+
+.correct img{
+  border: #008c95 solid 5px;
+  padding:0;
+}
+
 .App-link {
   color: #61dafb;
 }

@@ -1,7 +1,13 @@
 import React from "react";
 
 const Rules =[
-
+    {
+        text:(obj, isNot) =>{return `Click on ${isNot ? 'not' : ''} ${obj.txt}`},
+        rule: (obj, activeCard)=>{
+            return obj.txt === activeCard.txt
+        },
+        cardRender: (obj) =>{return imgCard(obj)},
+    },
     {
         text:(obj, isNot) =>{return `Click on ${isNot ? 'not' : ''} ${obj.preferredName || obj.firstName}`},
         rule: (obj, activeCard)=>{
@@ -16,7 +22,6 @@ const Rules =[
         },
         cardRender: (obj) =>{return txtCard(obj)},
     },
-
     {
         text:(obj, isNot) =>{return `Click on ${isNot ? 'not' : ''} last name of ${obj.lastName}`},
         rule: (obj, activeCard)=>{
@@ -55,7 +60,7 @@ const Rules =[
 const imgPrompt = (obj, isNot) =>{
     return (
         <div>
-            Click on {isNot ? 'not' : ''}
+            Who is {isNot ? 'not' : ''}
             <img src={process.env.PUBLIC_URL + '/' + obj.photoUrl } alt={obj.displayName}/>
         </div>
     )

@@ -35,6 +35,24 @@ class GameContainer extends React.Component {
         });
 
     }
+
+    startNewGame() {
+        let state = {
+            endGame: false,
+            currentRule:Rules[0],
+            isNot:false,
+            score:0,
+        };
+
+        let possibleCards = this.state.cards;
+        shuffle(possibleCards);
+        state.card = possibleCards;
+        state.activeCard = possibleCards[0];
+        state.activeCards = possibleCards.slice(0, 4);
+        this.setState(state)
+
+    }
+
     componentDidMount() {
         this.setupGame();
     }
@@ -43,37 +61,55 @@ class GameContainer extends React.Component {
 
         let isCorrect = this.state.currentRule.rule(
             obj,
-            this.state.activeCard,
-            this.state.activeCards
+            this.state.activeCard
         );
+
         if (this.state.isNot){
             isCorrect = !isCorrect
         }
         let score = 0;
         if (isCorrect){
-            score = this.state.score + 1
+            score = this.state.score + 1;
+            this.changeRule(score)
+
+        } else {
+            const gradedCards = this.state.activeCards.slice().map((card) => {
+                console.log(card);
+                card.isCorrect = this.state.currentRule.rule(
+                    card,
+                    this.state.activeCard
+                );
+                console.log(card.isCorrect);
+                if (this.state.isNot){
+                    card.isCorrect = !card.isCorrect
+                }
+                console.log(card.isCorrect);
+                return card
+            });
+            this.setState({activeCards: gradedCards});
+            this.newGame();
 
         }
-        this.changeRule(score)
+
+
     };
 
     changeRule = (score) =>{
 
-        if (score === 0){
-            this.newGame();
-        }
-        const numRules = Math.min(Rules.length, Math.floor(score/5));
+        const numRules = Math.min(Rules.length, Math.floor(score / 5));
         let currentRule = Rules[Math.floor(Math.random() * numRules)];
         //let currentRule = Rules[4];
         let possibleCards = this.state.cards;
         shuffle(possibleCards);
         let activeCard = possibleCards[0];
-        let activeCards = possibleCards.slice(0,Math.floor(score/4) + 4);
+        let activeCards = possibleCards.slice(0, Math.floor(score / 4) + 4);
         shuffle(activeCards);
         let isNot = (Math.floor(Math.random() * 10) % 2 === 0);
-        console.log(isNot);
-        this.setState({score, currentRule, possibleCards, activeCard, activeCards, isNot})
+
+        this.setState({ score, currentRule, possibleCards, activeCard, activeCards, isNot})
     };
+
+
 
     newGame = () =>{
         const prevScore = this.state.score;
@@ -88,24 +124,22 @@ class GameContainer extends React.Component {
             this.state.cards ?
                 <React.Fragment>
                     <div className={'header'}>Fear Not!</div>
-                    {this.state.endGame ?
+                    {this.state.endGame &&
 
-                        <div >
-                            <div>Great Job.  You scored: {this.state.prevScore}</div>
-                            <button onClick={()=>{this.setState({endGame:false})}}>New Game?</button>
-                        </div>
-                        :
-                        <React.Fragment>
-                            < GameArea cards={this.state.activeCards} clickHandler={this.clickHandler} rule={this.state.currentRule}/>
-                            <Footer
-                                rule={this.state.currentRule}
-                                isNot={this.state.isNot}
-                                activeCard={this.state.activeCard}
-                                score={this.state.score}
-                                prevScore={this.state.prevScore}
-                            />
-                        </React.Fragment>
+                    <div >
+                        <div>Great Job.  You scored: {this.state.prevScore}</div>
+                        <button onClick={()=>{this.startNewGame()}}>New Game?</button>
+                    </div>
+
                     }
+                    < GameArea cards={this.state.activeCards} clickHandler={this.clickHandler} rule={this.state.currentRule}/>
+                    <Footer
+                        rule={this.state.currentRule}
+                        isNot={this.state.isNot}
+                        activeCard={this.state.activeCard}
+                        score={this.state.score}
+                        prevScore={this.state.prevScore}
+                    />
 
                 </React.Fragment>
                 :
