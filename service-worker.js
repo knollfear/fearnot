@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fearnot/precache-manifest.cc13194431db7d221b3618aa16adb241.js"
+  "/fearnot/precache-manifest.342dad4f63e37fc8b62e816a27f4eca3.js"
 );
 
 self.addEventListener('message', (event) => {
