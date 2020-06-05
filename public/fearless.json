@@ -359,7 +359,7 @@
       "preferredName":"",
       "jobTitle":"CEO",
       "location":"Fearless HQ",
-      "division":"None",
+      "division":"Executive",
       "photoUrl":"img/40525.jpg",
       "img":"img/40525.jpg",
       "txt":"Delali Dzirasa"
@@ -464,7 +464,7 @@
       "preferredName":"",
       "jobTitle":"COO",
       "location":"Fearless HQ",
-      "division":"None",
+      "division":"Executive",
       "photoUrl":"img/40527.jpg",
       "img":"img/40527.jpg",
       "txt":"John Foster"
@@ -843,7 +843,7 @@
       "preferredName":"Steve",
       "jobTitle":"Business Analyst",
       "location":"Fearless HQ",
-      "division":"None",
+      "division":"Design Herd",
       "photoUrl":"img/40680.jpg",
       "img":"img/40680.jpg",
       "txt":"Steve Malm"

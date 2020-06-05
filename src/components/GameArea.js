@@ -16,8 +16,7 @@ const GameArea = ({cards, clickHandler, rule}) =>{
         setClicked(card);
         if (cards.length <= 6) {
             setTimeout(() =>{
-                clickHandler(card);
-                setClicked(null);
+
             }, 1000);
         } else{
             setClicked(null);
@@ -25,29 +24,42 @@ const GameArea = ({cards, clickHandler, rule}) =>{
         }
 
     };
-    return cards.map((card, index)=>{
-        let classes = 'card';
-        if (card.isCorrect){
-            classes += ' correct'
+    return (
+        <div>
+            {cards.map((card, index)=>{
+            let classes = 'card';
+            if (card.isCorrect){
+                classes += ' correct'
 
-        } else if (clicked && card.txt === clicked.txt){
-            classes += ' active'
-        }
+            } else if (clicked && card.txt === clicked.txt){
+                classes += ' active'
+            }
 
-        return (
-            <div className={ classes } onClick={(e) => {nextTurn(card)
-            }} key={`AC-${index}`}>
+            return (
+                <div className={ classes } onClick={(e) => {nextTurn(card)
+                }} key={`AC-${index}`}>
 
-                {rule.cardRender(card)}
+                    {rule.cardRender(card)}
 
-                { (clicked || hasCorrect) &&
-                <ul>
-                    {Object.entries(displayStats).map( ([key, value]) => <li>{card[value]}</li>)}
-                </ul>}
+                    { (clicked || hasCorrect) &&
+                    <ul>
+                        {Object.entries(displayStats).map( ([key, value]) => <li>{card[value]}</li>)}
+                    </ul>}
 
-            </div>
+                </div>
+        )
+        })}
+            {clicked && <div>
+                <button
+                    onClick={()=>{
+                        clickHandler(clicked);
+                        setClicked(null);
+                }}>
+                    Next
+                </button>
+            </div>}
+        </div>
     )
-    })
 };
 
 export default GameArea

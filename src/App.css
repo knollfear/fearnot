@@ -26,13 +26,15 @@
 
 .card{
   display:inline-block;
+  cursor: pointer;
 }
 ul{
   list-style: none;
+  padding: 0px;
 }
 
 .active img {
-  border: #ee5340 solid 5px;
+  border: white solid 5px;
   padding: 0;
 }
 
@@ -43,6 +45,13 @@ ul{
 
 .App-link {
   color: #61dafb;
+}
+.rule{
+  font-size: 3em;
+}
+
+.not{
+  color:#ee5340
 }
 
 @keyframes App-logo-spin {

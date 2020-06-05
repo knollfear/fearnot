@@ -26,7 +26,7 @@ class GameContainer extends React.Component {
 
         apiCards.then((possibleCards) =>{
             shuffle(possibleCards);
-
+            console.log(possibleCards.length);
             this.setState({
                 cards: possibleCards,
                 activeCard:possibleCards[0],
@@ -74,7 +74,6 @@ class GameContainer extends React.Component {
 
         } else {
             const gradedCards = this.state.activeCards.slice().map((card) => {
-                console.log(card);
                 card.isCorrect = this.state.currentRule.rule(
                     card,
                     this.state.activeCard
@@ -132,11 +131,13 @@ class GameContainer extends React.Component {
                     </div>
 
                     }
-                    < GameArea cards={this.state.activeCards} clickHandler={this.clickHandler} rule={this.state.currentRule}/>
+                    <div>
+                        <div className={`rule ${this.state.isNot && 'not'}`}>
+                            {this.state.currentRule.text(this.state.activeCard, this.state.isNot)}
+                        </div>
+                        < GameArea cards={this.state.activeCards} clickHandler={this.clickHandler} rule={this.state.currentRule}/>
+                    </div>
                     <Footer
-                        rule={this.state.currentRule}
-                        isNot={this.state.isNot}
-                        activeCard={this.state.activeCard}
                         score={this.state.score}
                         prevScore={this.state.prevScore}
                     />

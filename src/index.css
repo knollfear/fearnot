@@ -41,9 +41,12 @@ img{
 
 }
 
+.gameArea{
+  min-height:75vh;
+}
+
 .footer{
-  position: absolute;
-  bottom: 10px;
+  min-height: 10vh;
   width:100%;
   font-size:2em;
 }

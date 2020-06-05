@@ -2,14 +2,14 @@ import React from "react";
 
 const Rules =[
     {
-        text:(obj, isNot) =>{return `Click on ${isNot ? 'not' : ''} ${obj.txt}`},
+        text:(obj, isNot) =>{return `${isNot ? 'Not' : ''} ${obj.txt}`},
         rule: (obj, activeCard)=>{
             return obj.txt === activeCard.txt
         },
         cardRender: (obj) =>{return imgCard(obj)},
     },
     {
-        text:(obj, isNot) =>{return `Click on ${isNot ? 'not' : ''} ${obj.preferredName || obj.firstName}`},
+        text:(obj, isNot) =>{return `${isNot ? 'Not' : ''} ${obj.preferredName || obj.firstName}`},
         rule: (obj, activeCard)=>{
             return (obj.preferredName || obj.firstName) === (activeCard.preferredName || activeCard.firstName)
         },
@@ -23,21 +23,21 @@ const Rules =[
         cardRender: (obj) =>{return txtCard(obj)},
     },
     {
-        text:(obj, isNot) =>{return `Click on ${isNot ? 'not' : ''} last name of ${obj.lastName}`},
+        text:(obj, isNot) =>{return `${isNot ? 'Not' : ''} last name of ${obj.lastName}`},
         rule: (obj, activeCard)=>{
             return obj.lastName === activeCard.lastName
         },
         cardRender: (obj) =>{return imgCard(obj)},
     },
     {
-        text:(obj, isNot) =>{return `Click on ${isNot ? 'not' : ''} ${obj.division}`},
+        text:(obj, isNot) =>{return `${isNot ? 'Not' : ''} ${obj.division}`},
         rule: (obj, activeCard)=>{
             return obj.division === activeCard.division
         },
         cardRender: (obj) =>{return imgCard(obj)},
     },
     {
-        text:(obj, isNot) =>{return `Click on ${isNot ? 'not' : ''} ${obj.jobTitle}`},
+        text:(obj, isNot) =>{return `${isNot ? 'Not' : ''} ${obj.jobTitle}`},
         rule: (obj, activeCard)=>{
             return obj.jobTitle === activeCard.jobTitle
         },
@@ -60,7 +60,7 @@ const Rules =[
 const imgPrompt = (obj, isNot) =>{
     return (
         <div>
-            Who is {isNot ? 'not' : ''}
+            {isNot ? 'not' : ''}
             <img src={process.env.PUBLIC_URL + '/' + obj.photoUrl } alt={obj.displayName}/>
         </div>
     )
