@@ -833,13 +833,13 @@
       "displayName": "John Maxwell",
       "firstName": "John",
       "lastName": "Maxwell",
-      "preferredName": "John (or jmax)",
+      "preferredName": "John",
       "jobTitle": "Software Engineer II",
       "location": "Fearless HQ",
       "division": "Engineering Herd",
       "photoUrl": "img/40686.jpg",
       "img": "img/40686.jpg",
-      "txt": "John (or jmax) Maxwell"
+      "txt": "John Maxwell"
     },
     {
       "displayName": "Kendra McCarthy",
