@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9fd1c68d7b15018d37afa6a083d93f99",
+    "revision": "88655a47d1255a46fa062b755f42f53f",
     "url": "/fearnot/index.html"
   },
   {
-    "revision": "c0498194ccfdce2d782f",
+    "revision": "4462b4129c68fcf3b626",
     "url": "/fearnot/static/css/main.184a2415.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fearnot/static/js/2.6c1df86b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c0498194ccfdce2d782f",
-    "url": "/fearnot/static/js/main.9970d2d4.chunk.js"
+    "revision": "4462b4129c68fcf3b626",
+    "url": "/fearnot/static/js/main.adfca070.chunk.js"
   },
   {
     "revision": "d3b79ee2f384df2ffa53",
